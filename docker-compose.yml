@@ -8,8 +8,6 @@ services:
     environment:
       - KEYCLOAK_USER=admin
       - KEYCLOAK_PASSWORD=KeyCloak
-      - POSTGRES_PASSWORD=KeyCloak
-      - POSTGRES_USER=keycloak
       - PROXY_ADDRESS_FORWARDING=true
       # Workaround for container using legacy Docker links, resulting in
       # "WFLYCTL0211: Cannot resolve expression 'jdbc:postgresql://${env.POSTGRES_PORT_5432_TCP_ADDR}...")n
