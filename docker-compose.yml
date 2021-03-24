@@ -2,7 +2,7 @@ version: '2'
 
 services:
   keycloak:
-    image: pflaeging/keycloak-pg:3.4.3-1
+    image: jboss/keycloak:12.0.4
     links:
       - postgres
     environment:
@@ -14,6 +14,10 @@ services:
       # Workaround for container using legacy Docker links, resulting in
       # "WFLYCTL0211: Cannot resolve expression 'jdbc:postgresql://${env.POSTGRES_PORT_5432_TCP_ADDR}...")n
       - POSTGRES_PORT_5432_TCP_ADDR=postgres
+      - DB_VENDOR=POSTGRES
+      - DB_ADDR=postgres
+      - DB_USER=keycloak
+      - DB_PASSWORD=KeyCloak
     depends_on:
       - postgres
     restart: always
